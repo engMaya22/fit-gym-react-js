@@ -5,3 +5,11 @@
 *{
     font-family:"Poppins" , sans-serif;
 }
+
+.blueShadow {
+    box-shadow: 3px 3px 0px 0px #60a5fa;
+}
+.blueShadow:hover {
+    transform: translate(-3px , -3px);
+    box-shadow: 6px 6px 0px 0px #60a5fa;
+}
