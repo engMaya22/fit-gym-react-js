@@ -2,7 +2,7 @@
 export default function Hero() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-10 text-center 
-            mx-auto w-full max-w-[800px]">
+            mx-auto w-full max-w-[800px] p-4">
        <div className="gap-4 flex flex-col">
        <p>IT'S TIME TO GET</p>
        <h1 className="mr-4 upercase font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl">Swole<span className="text-blue-400">nurmous</span></h1>
