@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SCHEMES, WORKOUTS } from "../util/swoldier";
 import SectionWrapper from "./SectionWrapper";
+import Button from "./Button"
 
 
 const Header = ({index , title , description})=>{
@@ -43,7 +44,6 @@ export default function Generator() {
     if(muscles.length === 2)
       setShowModal(false)
 
-
   }
 
   return (
@@ -55,7 +55,7 @@ export default function Generator() {
         {Object.keys(WORKOUTS).map((type, typeIndex)=>{
           return (
               <button onClick={()=>{ setMuscles([]) ; setPoison(type)}}//new poison -> make muscles empty
-                  className={ 'bg-slate-950 rounded-lg hover:border-blue-600 duration-200 border py-4' +
+                  className={ 'bg-slate-950 rounded-lg hover:border-blue-600 duration-200 border py-4 px-4' +
                    (type === poison ? ' border-blue-600' : ' border-blue-400' ) } key={typeIndex}>
                     {/* blue 600 for current selected */}
                 <p className="capitalize">{type.replaceAll('_',' ')}</p>
@@ -102,7 +102,7 @@ export default function Generator() {
               //   <p className="capitalize">{scheme.replaceAll('_',' ')}</p>
               // </button>
                  <button onClick={()=>{setGoal(scheme)}}
-                 className={ 'bg-slate-950 rounded-lg hover:border-blue-600 duration-200 border py-4' +
+                 className={ 'bg-slate-950 rounded-lg hover:border-blue-600 duration-200 border py-4 px-4' +
                   (scheme === goal ? ' border-blue-600' : ' border-blue-400' ) } key={schemeIndex}>
                    {/* blue 600 for current selected */}
                <p className="capitalize">{scheme.replaceAll('_',' ')}</p>
@@ -110,7 +110,7 @@ export default function Generator() {
           )
         })}
       </div>
-
+     <Button text={"Formulate"} />
     </SectionWrapper>
   )
 }
