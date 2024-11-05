@@ -4,7 +4,7 @@ import ExerciseCard from "./ExerciseCard"
 
 export default function Workout({workout}) {
   return (
-    <SectionWrapper header={"welcome to"}
+    <SectionWrapper id={'workout'} header={"welcome to"}
        title={['The', 'DANGER', 'zone']}>
       <div className="flex flex-col gap-4">
        {

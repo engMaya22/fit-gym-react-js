@@ -46,7 +46,7 @@ export default function Generator({poison , setPoison , muscles , setMuscles ,go
   }
 
   return (
-    <SectionWrapper header={"generate your workout"}
+    <SectionWrapper id={'generate'} header={"generate your workout"}
       title={['It\'s', 'Huge', 'O\'clock']}>
 
 {/* workout defines poioson type for muscle */}
