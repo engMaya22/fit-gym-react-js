@@ -1,8 +1,15 @@
-# React + Vite
+**Gym Workout Generator**
+A modern workout generator built with **React.js** and styled using **Tailwind CSS**. This application provides users with customized workout plans based on selected preferences and goals.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+Hero Section: Welcomes users to the workout generator.
+Workout Generator: Allows users to select workout type, target muscles, and goals.
+Dynamic Workouts: Generates personalized workout routines based on user input.
 
-Currently, two official plugins are available:
+**Demo**
+Check out the live version of GymFit: https://maya-gym.netlify.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Getting Started**
+Clone the repository: git clone https://github.com/engMaya22/fit-gym-react-js
+Install dependencies: npm install
+Start the app: npm run dev
