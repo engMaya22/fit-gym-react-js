@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { SCHEMES, WORKOUTS } from "../util/swoldier";
 import SectionWrapper from "./SectionWrapper";
 import Button from "./Button"
+import { SCHEMES, WORKOUTS } from "../utils/swoldier";
 
 
 const Header = ({index , title , description})=>{
@@ -16,17 +16,16 @@ const Header = ({index , title , description})=>{
       </div>
   )
 }
-export default function Generator() {
+export default function Generator({poison , setPoison , muscles , setMuscles ,goal , setGoal ,updateWorkout}) {
 
   const [ showModal , setShowModal] = useState(false);
-  const [poison , setPoison] = useState('individual');//for workouts
-  const [muscles , setMuscles] = useState([]);
-  const [goal , setGoal] = useState('strength_power');
+
 
   const toggleModal = ()=>{
     setShowModal(!showModal);
   }
   const updateMuscles = (muscleGroup)=>{//set just to 2 muscles
+
     if(muscles.includes(muscleGroup)){//if musclesgroup already exsists and click on it remove it from muscles
       setMuscles(muscles.filter(val => val !== muscleGroup))
       return
@@ -50,6 +49,7 @@ export default function Generator() {
     <SectionWrapper header={"generate your workout"}
       title={['It\'s', 'Huge', 'O\'clock']}>
 
+{/* workout defines poioson type for muscle */}
       <Header index={'01'} title={'Pick your poison'} description={"Select the workout you wish to endure."} />
       <div className="grid grid-cols-2 sm:grid-cols-4  gap-4">
         {Object.keys(WORKOUTS).map((type, typeIndex)=>{
@@ -63,7 +63,8 @@ export default function Generator() {
           )
         })}
       </div>
-      
+
+{/* Muscles == targets == values of workout  */}
       <Header index={'02'} title={'Lock on targets'} description={"Select the muscles judged for annihilation."} />
       <div className="flex flex-col bg-slate-950 
        border border-solid border-blue-400 rounded-lg ">
@@ -93,24 +94,27 @@ export default function Generator() {
        
       </div>
 
+{/* Goals = SCHEMES */}
+
       <Header index={'03'} title={'Become Juggernaut'} description={"Select your ultimate objective."} />
-      <div className="grid grid-cols-3  gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3  gap-4">
 
         {Object.keys(SCHEMES).map((scheme, schemeIndex)=>{
           return (
               // <button className="bg-slate-950 rounded-lg hover:border-blue-600 duration-200 border-blue-400 border py-4" key={schemeIndex}>
               //   <p className="capitalize">{scheme.replaceAll('_',' ')}</p>
               // </button>
-                 <button onClick={()=>{setGoal(scheme)}}
+                <button onClick={()=>{setGoal(scheme)}}
                  className={ 'bg-slate-950 rounded-lg hover:border-blue-600 duration-200 border py-4 px-4' +
                   (scheme === goal ? ' border-blue-600' : ' border-blue-400' ) } key={schemeIndex}>
                    {/* blue 600 for current selected */}
-               <p className="capitalize">{scheme.replaceAll('_',' ')}</p>
-             </button>
+                  <p className="capitalize">{scheme.replaceAll('_',' ')}</p>
+                </button>
           )
         })}
       </div>
-     <Button text={"Formulate"} />
+
+     <Button func = {updateWorkout} text={"Formulate"} />
     </SectionWrapper>
   )
 }
