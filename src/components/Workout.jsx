@@ -14,9 +14,6 @@ export default function Workout({workout}) {
        }
 
       </div>
-
-
-
     </SectionWrapper>
   )
 }
